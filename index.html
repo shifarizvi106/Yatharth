@@ -3,78 +3,855 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The One For You - Limited Edition</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Limited Edition</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: 'Times New Roman', Times, serif;
+  background: #CCC9DC;
+  color: #1D201F;
+  line-height: 1.6;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Nav */
+.nav {
+  background: #040926;
+  border-bottom: 3px solid #E83F6F;
+  padding: 18px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  color: #FFBF00;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.brand .dot { color: #E83F6F; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #CCC9DC;
+}
+.nav-links a, .nav-links span { 
+  color: #CCC9DC; 
+  text-decoration: none;
+  cursor: pointer;
+}
+.nav-links a:hover, .nav-links span:hover { color: #FFBF00; }
+.cart-badge {
+  background: #E83F6F;
+  color: #CCC9DC;
+  padding: 2px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primary {
+  background: #FFBF00;
+  color: #040926;
+}
+.btn-primary:hover {
+  background: #E83F6F;
+  color: #CCC9DC;
+}
+.btn-outline {
+  background: transparent;
+  color: #040926;
+  border: 2px solid #040926;
+}
+.btn-outline:hover {
+  background: #040926;
+  color: #CCC9DC;
+}
+.btn-block { display: block; width: 100%; text-align: center; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.badge.in-stock { background: #FFBF00; color: #040926; }
+.badge.gone { background: #1D201F; color: #CCC9DC; }
+
+/* Pages */
+.page { display: none; padding: 30px 0; }
+.page.active { display: block; }
+
+/* Home */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 30px 0;
+}
+.hero-image {
+  background: #040926;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #FFBF00;
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-image .placeholder {
+  color: #CCC9DC;
+  font-size: 20px;
+  text-align: center;
+  padding: 40px;
+}
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
+.hero h1 {
+  font-size: 52px;
+  color: #040926;
+  margin: 15px 0;
+}
+.hero .price-new {
+  font-size: 32px;
+  color: #E83F6F;
+  font-weight: 700;
+}
+.hero .price-old {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.also-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.also-card {
+  background: #040926;
+  border: 2px solid #FFBF00;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+.also-card:hover { transform: translateY(-5px); border-color: #E83F6F; }
+.also-card .swatch {
+  height: 70px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.also-card .name { color: #CCC9DC; font-weight: 700; font-size: 16px; }
+
+/* Product */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.gallery-main {
+  background: #040926;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #FFBF00;
+  aspect-ratio: 4/5;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-main .placeholder {
+  color: #CCC9DC;
+  font-size: 18px;
+  text-align: center;
+  padding: 40px;
+}
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.gallery-thumbs img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.gallery-thumbs img:hover { border-color: #FFBF00; }
+.gallery-thumbs img.active { border-color: #E83F6F; }
+.gallery-thumbs .placeholder-thumb {
+  background: #040926;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #CCC9DC;
+  font-size: 11px;
+  text-align: center;
+  padding: 5px;
+}
+.product-title {
+  font-size: 38px;
+  color: #040926;
+  margin: 10px 0;
+}
+.stars { color: #FFBF00; font-size: 18px; }
+.feature-list {
+  list-style: none;
+  margin: 20px 0;
+}
+.feature-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(4,9,38,0.1);
+}
+.feature-list .tag {
+  color: #E83F6F;
+  font-weight: 700;
+  min-width: 100px;
+  display: inline-block;
+}
+.review-card {
+  background: #040926;
+  border: 2px solid #FFBF00;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+.review-card .name { color: #CCC9DC; font-weight: 700; }
+.review-card .body { color: #CCC9DC; margin: 5px 0; }
+.review-card .verified { color: #FFBF00; font-size: 12px; }
+.review-card .stars { font-size: 14px; }
+
+/* Checkout */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+}
+.form-card {
+  background: rgba(4,9,38,0.05);
+  border-radius: 16px;
+  padding: 30px;
+}
+.field { margin-bottom: 18px; }
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.field input, .field textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid rgba(4,9,38,0.15);
+  border-radius: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  background: rgba(255,255,255,0.7);
+}
+.field input:focus, .field textarea:focus {
+  border-color: #E83F6F;
+  outline: none;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.address-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.addr-option {
+  border: 2px solid rgba(4,9,38,0.15);
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.addr-option:hover { border-color: #FFBF00; }
+.addr-option.selected { border-color: #E83F6F; background: rgba(232,63,111,0.08); }
+.addr-option input { display: none; }
+.summary-card {
+  background: #040926;
+  color: #CCC9DC;
+  border-radius: 16px;
+  padding: 30px;
+  border: 2px solid #FFBF00;
+  position: sticky;
+  top: 100px;
+}
+.summary-card h3 { color: #FFBF00; }
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+.summary-line.total {
+  font-size: 20px;
+  font-weight: 700;
+  border-top: 2px solid rgba(204,201,220,0.2);
+  padding-top: 15px;
+  margin-top: 10px;
+}
+.summary-card .total-amount { color: #FFBF00; }
+
+/* Receipt */
+.receipt {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #040926;
+  color: #CCC9DC;
+  border: 2px solid #FFBF00;
+  border-radius: 16px;
+  padding: 30px;
+}
+.receipt .store { color: #FFBF00; font-weight: 700; font-size: 18px; }
+.receipt .divider { border-top: 1px solid rgba(204,201,220,0.15); margin: 15px 0; }
+.receipt .item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.receipt .detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}
+.receipt .detail .label { color: rgba(204,201,220,0.6); }
+.receipt .total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFBF00;
+  padding: 5px 0;
+}
+.receipt .barcode {
+  height: 30px;
+  margin: 15px 0;
+  background: repeating-linear-gradient(90deg, #CCC9DC 0 2px, transparent 2px 5px);
+  opacity: 0.3;
+}
+.receipt .footer {
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.5;
+  letter-spacing: 0.08em;
+}
+.receipt-actions {
+  max-width: 400px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  transition: 0.3s;
+}
+.btn-whatsapp:hover { background: #1ebe5b; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #040926;
+  color: #CCC9DC;
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: 2px solid #FFBF00;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+.toast.show { 
+  opacity: 1; 
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Footer */
+.footer {
+  background: #040926;
+  border-top: 3px solid #E83F6F;
+  padding: 30px;
+  text-align: center;
+  color: #CCC9DC;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .hero-grid, .product-grid, .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+  .also-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 36px; }
+  .nav-links span.hide-mobile { display: none; }
+  .summary-card { position: static; }
+}
+@media (max-width: 500px) {
+  .also-grid { grid-template-columns: 1fr; }
+  .address-options { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .brand { font-size: 20px; }
+}
+</style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">Limited Edition <span class="dot">.</span></a>
+    <a class="brand" onclick="showPage('home')">Limited Edition <span class="dot">.</span></a>
     <div class="nav-links">
-      <span class="hide-mobile">New Arrivals</span>
-      <span class="hide-mobile">Reviews</span>
-      <a href="product.html" class="nav-cart">
-        Cart <span class="cart-badge">0</span>
+      <span class="hide-mobile" onclick="showPage('home')">Home</span>
+      <span class="hide-mobile" onclick="showPage('product')">Product</span>
+      <a onclick="showPage('checkout')" style="cursor:pointer;">
+        🛒 Cart <span class="cart-badge" id="cartBadge">0</span>
       </a>
     </div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap grid">
-    <div class="media">
-      <img src="photo-1.jpg" alt="A Changed Woman">
-    </div>
-    <div class="hero-content">
-      <span class="eyebrow">
-        <span class="badge in-stock">✦ In Stock</span> 
-        Limited release · 1 unit only
-      </span>
-      <h1>A Changed<br>Woman.</h1>
-      <p class="sub">Previously out of stock. Currently thriving. Months in development, zero refunds issued — because nobody's asked for one.</p>
-      <div class="price-row">
-        <span class="price-old">~~ Emotionally Unavailable ~~</span>
-        <span class="price-new">FREE</span>
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-image">
+        <div class="placeholder"> Product Image</div>
       </div>
-      <a href="product.html" class="btn btn-primary">View Product →</a>
+      <div>
+        <span class="badge in-stock">✦ In Stock</span>
+        <h1>A Changed Woman.</h1>
+        <p>Previously out of stock. Currently thriving. Months in development, zero refunds issued.</p>
+        <div style="margin: 15px 0;">
+          <span class="price-old">~~ Emotionally Unavailable ~~</span><br>
+          <span class="price-new">FREE</span>
+        </div>
+        <a class="btn btn-primary" onclick="showPage('product')">View Product →</a>
+      </div>
     </div>
   </div>
-</header>
 
-<section class="also-section">
-  <div class="wrap">
-    <div class="also-header">
-      <h2>You may also like</h2>
-      <p class="sub-note">Frequently bought together, historically. Not anymore.</p>
-    </div>
+  <div class="wrap" style="padding: 40px 20px; border-top: 3px solid #E83F6F;">
+    <h2>You may also like</h2>
+    <p style="font-style: italic; color: #1D201F;">Frequently bought together, Not in-sale anymore.</p>
     <div class="also-grid">
       <div class="also-card">
-        <div class="swatch swatch-1"></div>
-        <div class="name">Bitterness</div>
+        <div class="swatch" style="background: linear-gradient(135deg, #E83F6F, #FFBF00);"></div>
+        <div class="name"> Crazy Bitch Mode</div>
         <span class="badge gone">Discontinued</span>
       </div>
       <div class="also-card">
-        <div class="swatch swatch-2"></div>
+        <div class="swatch" style="background: linear-gradient(135deg, #1D201F, #040926);"></div>
         <div class="name">Settling</div>
         <span class="badge gone">Out of Stock</span>
       </div>
       <div class="also-card">
-        <div class="swatch swatch-3"></div>
-        <div class="name">The Silent Treatment</div>
-        <span class="badge gone">No Longer Available</span>
+        <div class="swatch" style="background: linear-gradient(135deg, #FFBF00, #CCC9DC);"></div>
+        <div class="name">Silent Treatment</div>
+        <span class="badge gone">Unavailable</span>
       </div>
       <div class="also-card">
-        <div class="swatch swatch-4"></div>
+        <div class="swatch" style="background: linear-gradient(135deg, #E83F6F, #040926);"></div>
         <div class="name">Self-Doubt</div>
-        <span class="badge gone">Backordered Indefinitely</span>
+        <span class="badge gone">Backordered</span>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<footer class="site-footer"> Upgraded. AFTER A LOT OF WORK</footer>
+<!-- PRODUCT -->
+<div id="page-product" class="page">
+  <div class="wrap">
+    <div style="margin: 20px 0 30px; padding: 12px 20px; background: rgba(4,9,38,0.05); border-radius: 8px; border-left: 4px solid #E83F6F;">
+      <a onclick="showPage('home')" style="color: #E83F6F; font-weight: 700; cursor:pointer;">Home</a> / A Changed Woman
+    </div>
 
-<script src="js/cart.js"></script>
+    <div class="product-grid">
+      <div>
+        <div class="gallery-main">
+           <img src="photo-1.jpg" alt="Now with new features.">
+        </div>
+        <div class="gallery-thumbs">
+          <img src="photo-2.jpg" alt="Now with new features.">
+           <img src="photo-3.jpg" alt="Now with new features.">
+           <img src="photo-4.jpg" alt="Now with new features.">
+           <img src="photo-5.jpg" alt="Now with new features.">
+           <img src="photo-6.jpg" alt="Now with new features.">
+        </div>
+      </div>
+
+      <div>
+        <span class="badge in-stock">✦ In Stock</span>
+        <h1 class="product-title">A Changed Woman</h1>
+        <div><span class="stars">★★★★★</span> <span style="color: #1D201F;">(3 reviews)</span></div>
+        <div style="margin: 15px 0;">
+          <span class="price-old">~~ Emotionally Unavailable ~~</span><br>
+          <span class="price-new">FREE</span>
+        </div>
+        <p style="font-size: 16px; line-height: 1.8;">Same person, fewer red flags. Rebuilt with boundaries, patience, and not replying within the same minute out of anxiety.</p>
+        
+        <ul class="feature-list">
+          <li><span class="tag">Standard</span> Boundaries, now included.</li>
+          <li><span class="tag">Beta</span> Overthinking, reduced.</li>
+          <li><span class="tag">Upgraded</span> Communication, improved.</li>
+          <li><span class="tag">Extended</span> Patience, unlimited.</li>
+          <li><span class="tag">Restored</span> Self-respect, back.</li>
+        </ul>
+
+        <button class="btn btn-primary btn-block" onclick="addToCart()"> Add to Cart</button>
+        <a class="btn btn-outline btn-block" style="margin-top:10px; cursor:pointer;" onclick="showPage('checkout')">→ Checkout</a>
+        <p style="margin-top:15px; font-size:14px;"> Delivery available. Select at checkout.</p>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div style="margin-top: 50px; border-top: 3px solid #E83F6F; padding-top: 30px;">
+      <h2>Customer Reviews</h2>
+      <div class="review-card">
+        <div><span class="name">Past Mistakes</span> <span class="verified">✓ Verified</span> <span class="stars">★☆☆☆☆</span></div>
+        <div class="body">Returned. No longer needed.</div>
+      </div>
+      <div class="review-card">
+        <div><span class="name">Therapist</span> <span class="verified">✓ Verified</span> <span class="stars">★★★★★</span></div>
+        <div class="body">Finally takes feedback without getting defensive.</div>
+      </div>
+      <div class="review-card">
+        <div><span class="name">Future Self</span> <span class="verified">✓ Verified</span> <span class="stars">★★★★★</span></div>
+        <div class="body">Worth every bit of the wait.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div id="page-checkout" class="page">
+  <div class="wrap">
+    <h1 style="color: #040926; font-size: 38px;">Secure Checkout</h1>
+    <p style="color: #1D201F;">Complete your order with confidence</p>
+
+    <div class="checkout-grid" style="margin-top: 30px;">
+      <form id="checkoutForm" class="form-card" onsubmit="placeOrder(event)">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" id="fullName" value="Yatharth Agarwal" readonly>
+        </div>
+        <div class="field">
+          <label>Phone Number *</label>
+          <input type="tel" id="phone" value="+91 7208701672" required>
+        </div>
+        <div class="field">
+          <label>Delivery Address *</label>
+          <div class="address-options">
+            <div class="addr-option selected" onclick="selectAddr(this)">
+              <input type="radio" name="addr" value="your-place" checked>
+              🏠 Your Place
+              <div style="font-size:13px; opacity:0.7;">Delivered to you</div>
+            </div>
+            <div class="addr-option" onclick="selectAddr(this)">
+              <input type="radio" name="addr" value="my-place">
+              📍 My Place
+              <div style="font-size:13px; opacity:0.7;">You come get it</div>
+            </div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Date *</label>
+            <input type="date" id="date" required>
+          </div>
+          <div class="field">
+            <label>Time *</label>
+            <input type="time" id="time" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Notes</label>
+          <textarea id="notes" rows="3" placeholder="Special instructions..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">🔒 Place Order</button>
+      </form>
+
+      <div class="summary-card">
+        <h3>Order Summary</h3>
+        <div style="margin: 15px 0; padding: 15px 0; border-bottom: 1px solid rgba(204,201,220,0.1);">
+          <div style="display: flex; justify-content: space-between;">
+            <span> A Changed Woman</span>
+            <span style="color: #FFBF00;">FREE</span>
+          </div>
+          <div style="font-size:13px; opacity:0.6;">Quantity: 1</div>
+        </div>
+        <div class="summary-line"><span>Subtotal</span><span>FREE</span></div>
+        <div class="summary-line"><span>Delivery</span><span>FREE</span></div>
+        <div class="summary-line"><span>Tax</span><span>$0.00</span></div>
+        <div class="summary-line total"><span>Total</span><span class="total-amount">FREE</span></div>
+        <p style="text-align:center; font-size:13px; opacity:0.6; margin-top:15px;">✓ Your information is secure</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECEIPT -->
+<div id="page-receipt" class="page">
+  <div class="wrap" style="text-align: center; padding: 30px 0;">
+    <div style="width: 60px; height: 60px; background: #FFBF00; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 700; color: #040926; margin-bottom: 15px;">✓</div>
+    <h1 style="color: #040926; font-size: 32px;">Order Confirmed! </h1>
+    <p style="color: #1D201F;">She's on her way. No tracking number — just show up.</p>
+  </div>
+
+  <div class="receipt">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+      <span class="store">Limited Edition.</span>
+      <span id="receiptTime" style="font-size:12px; opacity:0.5;"></span>
+    </div>
+    <div class="divider"></div>
+    <div class="item"><span>A Changed Woman × 1</span><span style="color:#FFBF00;">FREE</span></div>
+    <div class="divider"></div>
+    <div class="detail"><span class="label">Order ID</span><span id="receiptOrder">CW-123456</span></div>
+    <div class="detail"><span class="label">Customer</span><span id="receiptName">Yatharth Agarwal</span></div>
+    <div class="detail"><span class="label">Phone</span><span id="receiptPhone">+91 7208701672</span></div>
+    <div class="detail"><span class="label">Deliver To</span><span id="receiptAddress">Your Place</span></div>
+    <div class="detail"><span class="label">Date</span><span id="receiptDate">June 30, 2026</span></div>
+    <div class="detail"><span class="label">Time</span><span id="receiptTimeDetail">7:00 PM</span></div>
+    <div class="detail"><span class="label">Notes</span><span id="receiptNotes">—</span></div>
+    <div class="divider"></div>
+    <div class="total"><span>Total</span><span>FREE</span></div>
+    <div style="display:flex; justify-content:space-between; font-size:12px; opacity:0.5; padding:5px 0;">
+      <span>Payment Method</span><span>Mutual Effort</span>
+    </div>
+    <div class="barcode"></div>
+    <div class="footer">✦ THANK YOU FOR YOUR ORDER ✦<br><span style="font-size:9px; letter-spacing:0.12em;">NO RETURNS • NO REFUNDS</span></div>
+  </div>
+
+  <div class="receipt-actions">
+    <a id="whatsappLink" href="#" class="btn-whatsapp" target="_blank"> Continue to WhatsApp</a>
+    <a class="btn btn-outline btn-block" onclick="showPage('home')" style="cursor:pointer;"> Back to Home</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer"> RESTOCKED. AFTER A LOT OF WORK</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script>
+// ===== NAVIGATION =====
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (page === 'receipt') generateReceipt();
+  }
+}
+
+// ===== CART =====
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem('cart')) || { items: 0 };
+  } catch {
+    return { items: 0 };
+  }
+}
+
+function setCart(cart) {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  const badge = document.getElementById('cartBadge');
+  if (badge) badge.textContent = cart.items || 0;
+}
+
+function addToCart() {
+  let cart = getCart();
+  cart.items = 1;
+  setCart(cart);
+  showToast('Added to cart!');
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ===== ADDRESS =====
+function selectAddr(el) {
+  document.querySelectorAll('.addr-option').forEach(a => a.classList.remove('selected'));
+  el.classList.add('selected');
+  const radio = el.querySelector('input[type="radio"]');
+  if (radio) radio.checked = true;
+}
+
+// ===== ORDER =====
+function placeOrder(e) {
+  e.preventDefault();
+  
+  const phone = document.getElementById('phone').value.trim();
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const addr = document.querySelector('input[name="addr"]:checked');
+  
+  if (!phone) {
+    showToast('Please enter your phone number!');
+    document.getElementById('phone').focus();
+    return;
+  }
+  
+  if (!date) {
+    showToast('Please select a delivery date!');
+    document.getElementById('date').focus();
+    return;
+  }
+  
+  if (!time) {
+    showToast('Please select a delivery time!');
+    document.getElementById('time').focus();
+    return;
+  }
+  
+  if (!addr) {
+    showToast('Please select a delivery address!');
+    return;
+  }
+  
+  const data = {
+    name: document.getElementById('fullName').value || 'Yatharth Agarwal',
+    phone: phone,
+    address: addr.value === 'your-place' ? 'Your Place' : 'My Place',
+    date: date,
+    time: time,
+    notes: document.getElementById('notes').value.trim() || '—'
+  };
+  
+  localStorage.setItem('order', JSON.stringify(data));
+  showPage('receipt');
+}
+
+// ===== RECEIPT =====
+function generateReceipt() {
+  try {
+    const data = JSON.parse(localStorage.getItem('order')) || {};
+    const id = 'CW-' + String(Math.floor(100000 + Math.random() * 900000));
+    const now = new Date();
+    
+    document.getElementById('receiptOrder').textContent = id;
+    document.getElementById('receiptName').textContent = data.name || 'Yatharth Agarwal';
+    document.getElementById('receiptPhone').textContent = data.phone || '+91 7208701672';
+    document.getElementById('receiptAddress').textContent = data.address || 'Your Place';
+    document.getElementById('receiptDate').textContent = data.date ? formatDate(data.date) : 'June 30, 2026';
+    document.getElementById('receiptTimeDetail').textContent = data.time ? formatTime(data.time) : '7:00 PM';
+    document.getElementById('receiptNotes').textContent = data.notes || '—';
+    document.getElementById('receiptTime').textContent = now.toLocaleString('en-IN', { 
+      day: 'numeric', 
+      month: 'short', 
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    
+    const msg = `Hey! I placed an order for A Changed Woman.\n\nOrder ID: ${id}\nCustomer: ${data.name || 'Yatharth Agarwal'}\nDeliver to: ${data.address || 'Your Place'}\nDate: ${data.date ? formatDate(data.date) : 'June 30, 2026'}\nTime: ${data.time ? formatTime(data.time) : '7:00 PM'}\nNotes: ${data.notes || 'None'}\n\nTotal: FREE ✨`;
+    
+    const whatsappLink = document.getElementById('whatsappLink');
+    whatsappLink.href = `https://wa.me/919820982173?text=${encodeURIComponent(msg)}`;
+    whatsappLink.target = '_blank';
+  } catch (error) {
+    console.error('Error generating receipt:', error);
+  }
+}
+
+function formatDate(d) {
+  try {
+    const dt = new Date(d + 'T00:00:00');
+    return dt.toLocaleDateString('en-IN', { 
+      day: 'numeric', 
+      month: 'short', 
+      year: 'numeric' 
+    });
+  } catch {
+    return 'June 30, 2026';
+  }
+}
+
+function formatTime(t) {
+  try {
+    const [h, m] = t.split(':').map(Number);
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const hour = h % 12 || 12;
+    return hour + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+  } catch {
+    return '7:00 PM';
+  }
+}
+
+// ===== SET DEFAULT DATE =====
+function setDefaultDate() {
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.value = tomorrow.toISOString().split('T')[0];
+    dateInput.min = tomorrow.toISOString().split('T')[0];
+  }
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  setCart(getCart());
+  setDefaultDate();
+  showPage('home');
+});
+</script>
+
 </body>
 </html>
