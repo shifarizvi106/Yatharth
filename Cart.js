@@ -1,7 +1,7 @@
 // ---------- CONFIG ----------
 // Replace this with your real WhatsApp number (with country code, no + or spaces)
 // e.g. "919876543210" for an Indian number
-const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+const WHATSAPP_NUMBER = "9820982173";
 
 const STORE = {
   product: "A Changed Woman™",
