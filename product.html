@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Changed Woman.</title>
+<title>A Changed Woman - Limited Edition</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">RESTOCKED<span class="dot">.</span></a>
+    <a href="index.html" class="brand">Limited Edition <span class="dot">.</span></a>
     <div class="nav-links">
       <span class="hide-mobile">New Arrivals</span>
       <span class="hide-mobile">Reviews</span>
       <a href="checkout.html" class="nav-cart">
-        Cart <span class="cart-badge">0</span>
+         Cart <span class="cart-badge">0</span>
       </a>
     </div>
   </div>
@@ -23,30 +23,44 @@
 
 <main class="product-page">
   <div class="wrap">
-    <div class="breadcrumb"><a href="index.html">Home</a> / A Changed Woman</div>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span class="separator">/</span> <span class="current">A Changed Woman</span>
+    </div>
 
     <div class="product-grid">
-      <div>
+      <!-- Gallery Section -->
+      <div class="gallery-wrapper">
         <div class="gallery-main">
-          <!-- Replace with: <img src="images/photo-1.jpg" alt="..."> -->
-          <img src="photo-1.jpg" alt="A Changed Woman">
+          <img src="photo-1.jpg" alt="A Changed Woman - Main Image">
         </div>
         <div class="gallery-thumbs">
-          <div class="thumb active"> <img src="photo-2.jpg" alt="A Changed Woman"> </div>
-          <div class="thumb active"> <img src="photo-3.jpg" alt="A Changed Woman"> </div>
-          <div class="thumb active"> <img src="photo-4.jpg" alt="A Changed Woman"> </div>
-          <div class="thumb active"> <img src="photo-5.jpg" alt="A Changed Woman"> </div>
-          <div class="thumb active"> <img src="photo-6.jpg" alt="A Changed Woman"> </div>
-          
+          <div class="thumb active">
+            <img src="photo-2.jpg" alt="A Changed Woman - View 2">
+          </div>
+          <div class="thumb">
+            <img src="photo-3.jpg" alt="A Changed Woman - View 3">
+          </div>
+          <div class="thumb">
+            <img src="photo-4.jpg" alt="A Changed Woman - View 4">
+          </div>
+          <div class="thumb">
+            <img src="photo-5.jpg" alt="A Changed Woman - View 5">
+          </div>
+          <div class="thumb">
+            <img src="photo-6.jpg" alt="A Changed Woman - View 6">
+          </div>
         </div>
       </div>
 
-      <div>
-        <span class="badge in-stock">In Stock</span>
-        <h1 class="product-title">A Changed Woman</h1>
-        <div>
-          <span class="stars">★★★★★</span>
-          <span class="review-count">3 verified reviews</span>
+      <!-- Product Info Section -->
+      <div class="product-info">
+        <div class="product-header">
+          <span class="badge in-stock">✦ In Stock</span>
+          <h1 class="product-title">A Changed Woman</h1>
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="review-count">(3 verified reviews)</span>
+          </div>
         </div>
 
         <div class="price-row">
@@ -59,53 +73,91 @@
         </p>
 
         <ul class="feature-list">
-          <li><span class="tag">Standard</span> Boundaries, now included and enforced.</li>
-          <li><span class="tag">Beta</span> Overthinking, reduced — not eliminated. Working on it.</li>
-          <li><span class="tag">Upgraded</span> Communication: from assumptions to actually saying the thing.</li>
-          <li><span class="tag">Extended</span> Patience, warranty extended indefinitely.</li>
-          <li><span class="tag">Restored</span> Self-respect, back to factory settings.</li>
+          <li>
+            <span class="tag">Standard</span>
+            <span class="feature-text">Boundaries, now included and enforced.</span>
+          </li>
+          <li>
+            <span class="tag">Beta</span>
+            <span class="feature-text">Overthinking, reduced — not eliminated. Working on it.</span>
+          </li>
+          <li>
+            <span class="tag">Upgraded</span>
+            <span class="feature-text">Communication: from assumptions to actually saying the thing.</span>
+          </li>
+          <li>
+            <span class="tag">Extended</span>
+            <span class="feature-text">Patience, warranty extended indefinitely.</span>
+          </li>
+          <li>
+            <span class="tag">Restored</span>
+            <span class="feature-text">Self-respect, back to factory settings.</span>
+          </li>
         </ul>
 
-        <div class="qty-cart-row">
-          <button class="btn btn-primary btn-block" onclick="addToCart()">Add to Cart</button>
+        <div class="action-buttons">
+          <button class="btn btn-primary btn-block" onclick="addToCart()">
+            🛒 Add to Cart
+          </button>
+          <a href="checkout.html" class="btn btn-outline btn-block">
+            → Go to Checkout
+          </a>
         </div>
-        <a href="checkout.html" class="btn btn-outline btn-block" style="margin-top:12px;">Go to Checkout</a>
 
-        <p class="delivery-note">Delivery available to your location. Select at checkout.</p>
+        <p class="delivery-note">
+          <span class="delivery-icon">📦</span>
+          Delivery available to your location. Select at checkout.
+        </p>
       </div>
     </div>
 
+    <!-- Reviews Section -->
     <section class="reviews-section">
-      <h2>Reviews</h2>
+      <div class="reviews-header">
+        <h2>Customer Reviews</h2>
+        <span class="review-average">★★★★★ 4.7/5</span>
+      </div>
 
       <div class="review-card">
         <div class="review-top">
-          <div><span class="review-name">Past Mistakes</span><span class="review-verified">✓ Verified Buyer</span></div>
+          <div class="reviewer-info">
+            <span class="review-name">Past Mistakes</span>
+            <span class="review-verified">✓ Verified Buyer</span>
+          </div>
           <span class="stars">★☆☆☆☆</span>
         </div>
         <div class="review-body">Returned. No longer needed, and frankly, no longer welcome.</div>
+        <div class="review-date">Posted 2 weeks ago</div>
       </div>
 
       <div class="review-card">
         <div class="review-top">
-          <div><span class="review-name">Therapist</span><span class="review-verified">✓ Verified Buyer</span></div>
+          <div class="reviewer-info">
+            <span class="review-name">Therapist</span>
+            <span class="review-verified">✓ Verified Buyer</span>
+          </div>
           <span class="stars">★★★★★</span>
         </div>
         <div class="review-body">Finally takes feedback without getting defensive about it. Noticeable improvement since last session.</div>
+        <div class="review-date">Posted 1 month ago</div>
       </div>
 
       <div class="review-card">
         <div class="review-top">
-          <div><span class="review-name">Future Self</span><span class="review-verified">✓ Verified Buyer</span></div>
+          <div class="reviewer-info">
+            <span class="review-name">Future Self</span>
+            <span class="review-verified">✓ Verified Buyer</span>
+          </div>
           <span class="stars">★★★★★</span>
         </div>
         <div class="review-body">Worth every bit of the wait. Would not go back to the old version.</div>
+        <div class="review-date">Posted 3 months ago</div>
       </div>
     </section>
   </div>
 </main>
 
-<footer class="site-footer">Upgraded. AFTER A LOT OF WORK</footer>
+<footer class="site-footer"> Upgraded. AFTER A LOT OF WORK</footer>
 
 <script src="js/cart.js"></script>
 </body>
