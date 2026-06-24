@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Restocked.</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-require-cart="true">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">RESTOCKED<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="product.html" class="nav-cart">
+        Cart <span class="cart-badge">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="checkout-page">
+  <div class="wrap">
+    <h1 class="checkout-title">Checkout</h1>
+
+    <div class="checkout-grid">
+      <form id="checkout-form" class="form-card">
+        <div class="field">
+          <label for="name">Customer Name</label>
+          <input type="text" id="name" name="name" value="Yatharth Agarwal" readonly>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+        </div>
+
+        <div class="field">
+          <label>Delivery Address</label>
+          <div class="address-options">
+            <label class="addr-option" data-value="your-place">
+              <input type="radio" name="address" value="your-place">
+              <div class="addr-label">Your Place</div>
+              <div class="addr-sub">Delivered to you</div>
+            </label>
+            <label class="addr-option" data-value="my-place">
+              <input type="radio" name="address" value="my-place">
+              <div class="addr-label">My Place</div>
+              <div class="addr-sub">You come get it</div>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Delivery Date</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="field">
+            <label for="time">Delivery Time</label>
+            <input type="time" id="time" name="time" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes">Additional Notes (optional)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions..."></textarea>
+        </div>
+      </form>
+
+      <div class="summary-card">
+        <h3>Order Summary</h3>
+        <div class="summary-line"><span>Item</span><span>A Changed Woman</span></div>
+        <div class="summary-line"><span>Quantity</span><span>1</span></div>
+        <div class="summary-line"><span>Delivery</span><span>Selected at checkout</span></div>
+        <div class="summary-line total"><span>Total</span><span>FREE</span></div>
+        <button type="submit" form="checkout-form" class="btn btn-primary btn-block">Place Order</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer"> Upgraded. AFTER A LOT OF WORK</footer>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
