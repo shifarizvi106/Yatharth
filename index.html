@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Limited Edition</title>
+<title>The One For You.</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { 
@@ -447,12 +447,12 @@ body {
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" onclick="showPage('home')">Limited Edition <span class="dot">.</span></a>
+    <a class="brand" onclick="showPage('home')"> The One For You.<span class="dot">.</span></a>
     <div class="nav-links">
       <span class="hide-mobile" onclick="showPage('home')">Home</span>
       <span class="hide-mobile" onclick="showPage('product')">Product</span>
       <a onclick="showPage('checkout')" style="cursor:pointer;">
-        🛒 Cart <span class="cart-badge" id="cartBadge">0</span>
+         Cart <span class="cart-badge" id="cartBadge">0</span>
       </a>
     </div>
   </div>
@@ -463,14 +463,14 @@ body {
   <div class="wrap hero">
     <div class="hero-grid">
       <div class="hero-image">
-        <div class="placeholder"> Product Image</div>
+        <img src="photo-1.jpg" alt="A Changed Woman">
       </div>
       <div>
         <span class="badge in-stock">✦ In Stock</span>
         <h1>A Changed Woman.</h1>
         <p>Previously out of stock. Currently thriving. Months in development, zero refunds issued.</p>
         <div style="margin: 15px 0;">
-          <span class="price-old">~~ Emotionally Unavailable ~~</span><br>
+          <span class="price-old"> Emotionally Unavailable.</span><br>
           <span class="price-new">FREE</span>
         </div>
         <a class="btn btn-primary" onclick="showPage('product')">View Product →</a>
@@ -489,7 +489,7 @@ body {
       </div>
       <div class="also-card">
         <div class="swatch" style="background: linear-gradient(135deg, #1D201F, #040926);"></div>
-        <div class="name">Settling</div>
+        <div class="name"> Picking Fights 24/7 </div>
         <span class="badge gone">Out of Stock</span>
       </div>
       <div class="also-card">
@@ -563,8 +563,8 @@ body {
         <div class="body">Finally takes feedback without getting defensive.</div>
       </div>
       <div class="review-card">
-        <div><span class="name">Future Self</span> <span class="verified">✓ Verified</span> <span class="stars">★★★★★</span></div>
-        <div class="body">Worth every bit of the wait.</div>
+        <div><span class="name">Future You </span> <span class="verified">✓ Verified</span> <span class="stars">★★★★★</span></div>
+        <div class="body">Worth every bit of the wait. We're married and have three kids now.</div>
       </div>
     </div>
   </div>
@@ -591,12 +591,12 @@ body {
           <div class="address-options">
             <div class="addr-option selected" onclick="selectAddr(this)">
               <input type="radio" name="addr" value="your-place" checked>
-              🏠 Your Place
+              Your Place
               <div style="font-size:13px; opacity:0.7;">Delivered to you</div>
             </div>
             <div class="addr-option" onclick="selectAddr(this)">
               <input type="radio" name="addr" value="my-place">
-              📍 My Place
+               My Place
               <div style="font-size:13px; opacity:0.7;">You come get it</div>
             </div>
           </div>
@@ -615,7 +615,7 @@ body {
           <label>Notes</label>
           <textarea id="notes" rows="3" placeholder="Special instructions..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">🔒 Place Order</button>
+        <button type="submit" class="btn btn-primary btn-block"> Place Order</button>
       </form>
 
       <div class="summary-card">
