@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The One For You.</title>
+<title> The One For You.</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { 
   font-family: 'Times New Roman', Times, serif;
-  background: #CCC9DC;
-  color: #1D201F;
+  background: #F2CEE6;
+  color: #2F2235;
   line-height: 1.6;
 }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
 /* Nav */
 .nav {
-  background: #040926;
-  border-bottom: 3px solid #E83F6F;
+  background: #2F2235;
+  border-bottom: 3px solid #F2CEE6;
   padding: 18px 24px;
   position: sticky;
   top: 0;
@@ -31,28 +31,28 @@ body {
   align-items: center;
 }
 .brand {
-  color: #FFBF00;
+  color: #E5F4E3;
   font-size: 26px;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
 }
-.brand .dot { color: #E83F6F; }
+.brand .dot { color: #F2CEE6; }
 .nav-links {
   display: flex;
   align-items: center;
   gap: 25px;
-  color: #CCC9DC;
+  color: #E5F4E3;
 }
 .nav-links a, .nav-links span { 
-  color: #CCC9DC; 
+  color: #E5F4E3; 
   text-decoration: none;
   cursor: pointer;
 }
-.nav-links a:hover, .nav-links span:hover { color: #FFBF00; }
+.nav-links a:hover, .nav-links span:hover { color: #F2CEE6; }
 .cart-badge {
-  background: #E83F6F;
-  color: #CCC9DC;
+  background: #F2CEE6;
+  color: #2F2235;
   padding: 2px 8px;
   border-radius: 50%;
   font-size: 12px;
@@ -74,21 +74,21 @@ body {
   transition: 0.3s;
 }
 .btn-primary {
-  background: #FFBF00;
-  color: #040926;
+  background: #E5F4E3;
+  color: #2F2235;
 }
 .btn-primary:hover {
-  background: #E83F6F;
-  color: #CCC9DC;
+  background: #F2CEE6;
+  color: #2F2235;
 }
 .btn-outline {
   background: transparent;
-  color: #040926;
-  border: 2px solid #040926;
+  color: #2F2235;
+  border: 2px solid #2F2235;
 }
 .btn-outline:hover {
-  background: #040926;
-  color: #CCC9DC;
+  background: #2F2235;
+  color: #E5F4E3;
 }
 .btn-block { display: block; width: 100%; text-align: center; }
 
@@ -101,8 +101,8 @@ body {
   font-weight: 700;
   text-transform: uppercase;
 }
-.badge.in-stock { background: #FFBF00; color: #040926; }
-.badge.gone { background: #1D201F; color: #CCC9DC; }
+.badge.in-stock { background: #E5F4E3; color: #2F2235; }
+.badge.gone { background: #60495A; color: #E5F4E3; }
 
 /* Pages */
 .page { display: none; padding: 30px 0; }
@@ -117,17 +117,18 @@ body {
   padding: 30px 0;
 }
 .hero-image {
-  background: #040926;
+  background: #3F3244;
   border-radius: 20px;
   overflow: hidden;
-  border: 3px solid #FFBF00;
+  border: 3px solid #E5F4E3;
   aspect-ratio: 4/5;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .hero-image .placeholder {
-  color: #CCC9DC;
+  color: #E5F4E3;
   font-size: 20px;
   text-align: center;
   padding: 40px;
@@ -135,12 +136,12 @@ body {
 .hero-image img { width: 100%; height: 100%; object-fit: cover; }
 .hero h1 {
   font-size: 52px;
-  color: #040926;
+  color: #2F2235;
   margin: 15px 0;
 }
 .hero .price-new {
   font-size: 32px;
-  color: #E83F6F;
+  color: #60495A;
   font-weight: 700;
 }
 .hero .price-old {
@@ -154,20 +155,21 @@ body {
   margin-top: 20px;
 }
 .also-card {
-  background: #040926;
-  border: 2px solid #FFBF00;
+  background: #3F3244;
+  border: 2px solid #E5F4E3;
   border-radius: 16px;
   padding: 20px;
   text-align: center;
   transition: 0.3s;
 }
-.also-card:hover { transform: translateY(-5px); border-color: #E83F6F; }
+.also-card:hover { transform: translateY(-5px); border-color: #F2CEE6; }
 .also-card .swatch {
   height: 70px;
   border-radius: 12px;
   margin-bottom: 10px;
+  background: #60495A !important;
 }
-.also-card .name { color: #CCC9DC; font-weight: 700; font-size: 16px; }
+.also-card .name { color: #E5F4E3; font-weight: 700; font-size: 16px; }
 
 /* Product */
 .product-grid {
@@ -175,24 +177,56 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
+.gallery-container {
+  position: relative;
+}
 .gallery-main {
-  background: #040926;
+  background: #3F3244;
   border-radius: 20px;
   overflow: hidden;
-  border: 3px solid #FFBF00;
+  border: 3px solid #E5F4E3;
   aspect-ratio: 4/5;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .gallery-main .placeholder {
-  color: #CCC9DC;
+  color: #E5F4E3;
   font-size: 18px;
   text-align: center;
   padding: 40px;
 }
-.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-main img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(47, 34, 53, 0.8);
+  color: #E5F4E3;
+  border: 2px solid #E5F4E3;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-btn:hover {
+  background: #E5F4E3;
+  color: #2F2235;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
 .gallery-thumbs {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -207,52 +241,52 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-.gallery-thumbs img:hover { border-color: #FFBF00; }
-.gallery-thumbs img.active { border-color: #E83F6F; }
+.gallery-thumbs img:hover { border-color: #E5F4E3; }
+.gallery-thumbs img.active { border-color: #F2CEE6; }
 .gallery-thumbs .placeholder-thumb {
-  background: #040926;
+  background: #3F3244;
   aspect-ratio: 1/1;
   border-radius: 10px;
   border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #CCC9DC;
+  color: #E5F4E3;
   font-size: 11px;
   text-align: center;
   padding: 5px;
 }
 .product-title {
   font-size: 38px;
-  color: #040926;
+  color: #2F2235;
   margin: 10px 0;
 }
-.stars { color: #FFBF00; font-size: 18px; }
+.stars { color: #60495A; font-size: 18px; }
 .feature-list {
   list-style: none;
   margin: 20px 0;
 }
 .feature-list li {
   padding: 10px 0;
-  border-bottom: 1px solid rgba(4,9,38,0.1);
+  border-bottom: 1px solid rgba(47,34,53,0.1);
 }
 .feature-list .tag {
-  color: #E83F6F;
+  color: #60495A;
   font-weight: 700;
   min-width: 100px;
   display: inline-block;
 }
 .review-card {
-  background: #040926;
-  border: 2px solid #FFBF00;
+  background: #3F3244;
+  border: 2px solid #E5F4E3;
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 15px;
 }
-.review-card .name { color: #CCC9DC; font-weight: 700; }
-.review-card .body { color: #CCC9DC; margin: 5px 0; }
-.review-card .verified { color: #FFBF00; font-size: 12px; }
-.review-card .stars { font-size: 14px; }
+.review-card .name { color: #E5F4E3; font-weight: 700; }
+.review-card .body { color: #E5F4E3; margin: 5px 0; }
+.review-card .verified { color: #E5F4E3; font-size: 12px; }
+.review-card .stars { font-size: 14px; color: #F2CEE6; }
 
 /* Checkout */
 .checkout-grid {
@@ -261,7 +295,7 @@ body {
   gap: 40px;
 }
 .form-card {
-  background: rgba(4,9,38,0.05);
+  background: rgba(63,50,68,0.08);
   border-radius: 16px;
   padding: 30px;
 }
@@ -270,18 +304,19 @@ body {
   display: block;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #2F2235;
 }
 .field input, .field textarea {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid rgba(4,9,38,0.15);
+  border: 2px solid rgba(47,34,53,0.15);
   border-radius: 10px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 15px;
   background: rgba(255,255,255,0.7);
 }
 .field input:focus, .field textarea:focus {
-  border-color: #E83F6F;
+  border-color: #F2CEE6;
   outline: none;
 }
 .field-row {
@@ -295,25 +330,25 @@ body {
   gap: 10px;
 }
 .addr-option {
-  border: 2px solid rgba(4,9,38,0.15);
+  border: 2px solid rgba(47,34,53,0.15);
   border-radius: 12px;
   padding: 15px;
   cursor: pointer;
   transition: 0.3s;
 }
-.addr-option:hover { border-color: #FFBF00; }
-.addr-option.selected { border-color: #E83F6F; background: rgba(232,63,111,0.08); }
+.addr-option:hover { border-color: #E5F4E3; }
+.addr-option.selected { border-color: #F2CEE6; background: rgba(242,206,230,0.2); }
 .addr-option input { display: none; }
 .summary-card {
-  background: #040926;
-  color: #CCC9DC;
+  background: #2F2235;
+  color: #E5F4E3;
   border-radius: 16px;
   padding: 30px;
-  border: 2px solid #FFBF00;
+  border: 2px solid #E5F4E3;
   position: sticky;
   top: 100px;
 }
-.summary-card h3 { color: #FFBF00; }
+.summary-card h3 { color: #F2CEE6; }
 .summary-line {
   display: flex;
   justify-content: space-between;
@@ -322,24 +357,24 @@ body {
 .summary-line.total {
   font-size: 20px;
   font-weight: 700;
-  border-top: 2px solid rgba(204,201,220,0.2);
+  border-top: 2px solid rgba(229,244,227,0.2);
   padding-top: 15px;
   margin-top: 10px;
 }
-.summary-card .total-amount { color: #FFBF00; }
+.summary-card .total-amount { color: #F2CEE6; }
 
 /* Receipt */
 .receipt {
   max-width: 400px;
   margin: 0 auto;
-  background: #040926;
-  color: #CCC9DC;
-  border: 2px solid #FFBF00;
+  background: #2F2235;
+  color: #E5F4E3;
+  border: 2px solid #E5F4E3;
   border-radius: 16px;
   padding: 30px;
 }
-.receipt .store { color: #FFBF00; font-weight: 700; font-size: 18px; }
-.receipt .divider { border-top: 1px solid rgba(204,201,220,0.15); margin: 15px 0; }
+.receipt .store { color: #F2CEE6; font-weight: 700; font-size: 18px; }
+.receipt .divider { border-top: 1px solid rgba(229,244,227,0.15); margin: 15px 0; }
 .receipt .item {
   display: flex;
   justify-content: space-between;
@@ -351,19 +386,19 @@ body {
   padding: 4px 0;
   font-size: 14px;
 }
-.receipt .detail .label { color: rgba(204,201,220,0.6); }
+.receipt .detail .label { color: rgba(229,244,227,0.6); }
 .receipt .total {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
   font-weight: 700;
-  color: #FFBF00;
+  color: #F2CEE6;
   padding: 5px 0;
 }
 .receipt .barcode {
   height: 30px;
   margin: 15px 0;
-  background: repeating-linear-gradient(90deg, #CCC9DC 0 2px, transparent 2px 5px);
+  background: repeating-linear-gradient(90deg, #E5F4E3 0 2px, transparent 2px 5px);
   opacity: 0.3;
 }
 .receipt .footer {
@@ -397,11 +432,11 @@ body {
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: #040926;
-  color: #CCC9DC;
+  background: #2F2235;
+  color: #E5F4E3;
   padding: 15px 30px;
   border-radius: 12px;
-  border: 2px solid #FFBF00;
+  border: 2px solid #E5F4E3;
   font-weight: 700;
   opacity: 0;
   transition: all 0.3s ease;
@@ -415,11 +450,11 @@ body {
 
 /* Footer */
 .footer {
-  background: #040926;
-  border-top: 3px solid #E83F6F;
+  background: #2F2235;
+  border-top: 3px solid #F2CEE6;
   padding: 30px;
   text-align: center;
-  color: #CCC9DC;
+  color: #E5F4E3;
   margin-top: 30px;
 }
 
@@ -439,6 +474,11 @@ body {
   .field-row { grid-template-columns: 1fr; }
   .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
   .brand { font-size: 20px; }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
 }
 </style>
 </head>
@@ -447,7 +487,7 @@ body {
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" onclick="showPage('home')"> The One For You.<span class="dot">.</span></a>
+    <a class="brand" onclick="showPage('home')"> The One For You. <span class="dot">.</span></a>
     <div class="nav-links">
       <span class="hide-mobile" onclick="showPage('home')">Home</span>
       <span class="hide-mobile" onclick="showPage('product')">Product</span>
@@ -463,14 +503,14 @@ body {
   <div class="wrap hero">
     <div class="hero-grid">
       <div class="hero-image">
-        <img src="photo-1.jpg" alt="A Changed Woman">
+       <img src="photo-1.jpg" alt="A Changed Woman">
       </div>
       <div>
         <span class="badge in-stock">✦ In Stock</span>
         <h1>A Changed Woman.</h1>
         <p>Previously out of stock. Currently thriving. Months in development, zero refunds issued.</p>
         <div style="margin: 15px 0;">
-          <span class="price-old"> Emotionally Unavailable.</span><br>
+          <span class="price-old">~~ Emotionally Unavailable ~~</span><br>
           <span class="price-new">FREE</span>
         </div>
         <a class="btn btn-primary" onclick="showPage('product')">View Product →</a>
@@ -478,27 +518,27 @@ body {
     </div>
   </div>
 
-  <div class="wrap" style="padding: 40px 20px; border-top: 3px solid #E83F6F;">
+  <div class="wrap" style="padding: 40px 20px; border-top: 3px solid #F2CEE6;">
     <h2>You may also like</h2>
-    <p style="font-style: italic; color: #1D201F;">Frequently bought together, Not in-sale anymore.</p>
+    <p style="font-style: italic; color: #2F2235;">Frequently bought together.</p>
     <div class="also-grid">
       <div class="also-card">
-        <div class="swatch" style="background: linear-gradient(135deg, #E83F6F, #FFBF00);"></div>
-        <div class="name"> Crazy Bitch Mode</div>
+        <div class="swatch"></div>
+        <div class="name">Bitterness</div>
         <span class="badge gone">Discontinued</span>
       </div>
       <div class="also-card">
-        <div class="swatch" style="background: linear-gradient(135deg, #1D201F, #040926);"></div>
-        <div class="name"> Picking Fights 24/7 </div>
+        <div class="swatch"></div>
+        <div class="name">Settling</div>
         <span class="badge gone">Out of Stock</span>
       </div>
       <div class="also-card">
-        <div class="swatch" style="background: linear-gradient(135deg, #FFBF00, #CCC9DC);"></div>
+        <div class="swatch"></div>
         <div class="name">Silent Treatment</div>
         <span class="badge gone">Unavailable</span>
       </div>
       <div class="also-card">
-        <div class="swatch" style="background: linear-gradient(135deg, #E83F6F, #040926);"></div>
+        <div class="swatch"></div>
         <div class="name">Self-Doubt</div>
         <span class="badge gone">Backordered</span>
       </div>
@@ -509,28 +549,31 @@ body {
 <!-- PRODUCT -->
 <div id="page-product" class="page">
   <div class="wrap">
-    <div style="margin: 20px 0 30px; padding: 12px 20px; background: rgba(4,9,38,0.05); border-radius: 8px; border-left: 4px solid #E83F6F;">
-      <a onclick="showPage('home')" style="color: #E83F6F; font-weight: 700; cursor:pointer;">Home</a> / A Changed Woman
+    <div style="margin: 20px 0 30px; padding: 12px 20px; background: rgba(47,34,53,0.05); border-radius: 8px; border-left: 4px solid #F2CEE6;">
+      <a onclick="showPage('home')" style="color: #F2CEE6; font-weight: 700; cursor:pointer;">Home</a> / A Changed Woman
     </div>
 
     <div class="product-grid">
-      <div>
-        <div class="gallery-main">
-           <img src="photo-1.jpg" alt="Now with new features.">
+      <div class="gallery-container">
+        <div class="gallery-main" id="galleryMain">
+<img src="photo-1.jpg" alt="A Changed Woman">
+          <button class="carousel-btn prev" onclick="changeImage(-1)">‹</button>
+          <button class="carousel-btn next" onclick="changeImage(1)">›</button>
         </div>
-        <div class="gallery-thumbs">
-          <img src="photo-2.jpg" alt="Now with new features.">
-           <img src="photo-3.jpg" alt="Now with new features.">
-           <img src="photo-4.jpg" alt="Now with new features.">
-           <img src="photo-5.jpg" alt="Now with new features.">
-           <img src="photo-6.jpg" alt="Now with new features.">
+        <div class="gallery-thumbs" id="galleryThumbs">
+         <img src="photo-2.jpg" alt="A Changed Woman">
+          <img src="photo-3.jpg" alt="A Changed Woman">
+          <img src="photo-4.jpg" alt="A Changed Woman">
+          <img src="photo-5.jpg" alt="A Changed Woman">
+          <img src="photo-6.jpg" alt="A Changed Woman">
+          <img src="photo-1.jpg" alt="A Changed Woman">
         </div>
       </div>
 
       <div>
         <span class="badge in-stock">✦ In Stock</span>
         <h1 class="product-title">A Changed Woman</h1>
-        <div><span class="stars">★★★★★</span> <span style="color: #1D201F;">(3 reviews)</span></div>
+        <div><span class="stars">★★★★★</span> <span style="color: #2F2235;">(3 reviews)</span></div>
         <div style="margin: 15px 0;">
           <span class="price-old">~~ Emotionally Unavailable ~~</span><br>
           <span class="price-new">FREE</span>
@@ -552,7 +595,7 @@ body {
     </div>
 
     <!-- Reviews -->
-    <div style="margin-top: 50px; border-top: 3px solid #E83F6F; padding-top: 30px;">
+    <div style="margin-top: 50px; border-top: 3px solid #F2CEE6; padding-top: 30px;">
       <h2>Customer Reviews</h2>
       <div class="review-card">
         <div><span class="name">Past Mistakes</span> <span class="verified">✓ Verified</span> <span class="stars">★☆☆☆☆</span></div>
@@ -563,8 +606,8 @@ body {
         <div class="body">Finally takes feedback without getting defensive.</div>
       </div>
       <div class="review-card">
-        <div><span class="name">Future You </span> <span class="verified">✓ Verified</span> <span class="stars">★★★★★</span></div>
-        <div class="body">Worth every bit of the wait. We're married and have three kids now.</div>
+        <div><span class="name">Future Self</span> <span class="verified">✓ Verified</span> <span class="stars">★★★★★</span></div>
+        <div class="body">Worth every bit of the wait.</div>
       </div>
     </div>
   </div>
@@ -573,8 +616,8 @@ body {
 <!-- CHECKOUT -->
 <div id="page-checkout" class="page">
   <div class="wrap">
-    <h1 style="color: #040926; font-size: 38px;">Secure Checkout</h1>
-    <p style="color: #1D201F;">Complete your order with confidence</p>
+    <h1 style="color: #2F2235; font-size: 38px;">Secure Checkout</h1>
+    <p style="color: #2F2235;">Complete your order with confidence</p>
 
     <div class="checkout-grid" style="margin-top: 30px;">
       <form id="checkoutForm" class="form-card" onsubmit="placeOrder(event)">
@@ -584,14 +627,14 @@ body {
         </div>
         <div class="field">
           <label>Phone Number *</label>
-          <input type="tel" id="phone" value="+91 7208701672" required>
+          <input type="tel" id="phone" value="+91 7208701672" readonly>
         </div>
         <div class="field">
           <label>Delivery Address *</label>
           <div class="address-options">
             <div class="addr-option selected" onclick="selectAddr(this)">
               <input type="radio" name="addr" value="your-place" checked>
-              Your Place
+               Your Place
               <div style="font-size:13px; opacity:0.7;">Delivered to you</div>
             </div>
             <div class="addr-option" onclick="selectAddr(this)">
@@ -620,10 +663,10 @@ body {
 
       <div class="summary-card">
         <h3>Order Summary</h3>
-        <div style="margin: 15px 0; padding: 15px 0; border-bottom: 1px solid rgba(204,201,220,0.1);">
+        <div style="margin: 15px 0; padding: 15px 0; border-bottom: 1px solid rgba(229,244,227,0.1);">
           <div style="display: flex; justify-content: space-between;">
             <span> A Changed Woman</span>
-            <span style="color: #FFBF00;">FREE</span>
+            <span style="color: #F2CEE6;">FREE</span>
           </div>
           <div style="font-size:13px; opacity:0.6;">Quantity: 1</div>
         </div>
@@ -640,9 +683,9 @@ body {
 <!-- RECEIPT -->
 <div id="page-receipt" class="page">
   <div class="wrap" style="text-align: center; padding: 30px 0;">
-    <div style="width: 60px; height: 60px; background: #FFBF00; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 700; color: #040926; margin-bottom: 15px;">✓</div>
-    <h1 style="color: #040926; font-size: 32px;">Order Confirmed! </h1>
-    <p style="color: #1D201F;">She's on her way. No tracking number — just show up.</p>
+    <div style="width: 60px; height: 60px; background: #E5F4E3; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 30px; font-weight: 700; color: #2F2235; margin-bottom: 15px;">✓</div>
+    <h1 style="color: #2F2235; font-size: 32px;">Order Confirmed! </h1>
+    <p style="color: #2F2235;">She's on her way. No tracking number — just show up.</p>
   </div>
 
   <div class="receipt">
@@ -651,7 +694,7 @@ body {
       <span id="receiptTime" style="font-size:12px; opacity:0.5;"></span>
     </div>
     <div class="divider"></div>
-    <div class="item"><span>A Changed Woman × 1</span><span style="color:#FFBF00;">FREE</span></div>
+    <div class="item"><span>A Changed Woman × 1</span><span style="color:#F2CEE6;">FREE</span></div>
     <div class="divider"></div>
     <div class="detail"><span class="label">Order ID</span><span id="receiptOrder">CW-123456</span></div>
     <div class="detail"><span class="label">Customer</span><span id="receiptName">Yatharth Agarwal</span></div>
@@ -676,12 +719,86 @@ body {
 </div>
 
 <!-- FOOTER -->
-<div class="footer"> RESTOCKED. AFTER A LOT OF WORK</div>
+<div class="footer"> Upgraded. AFTER A LOT OF WORK</div>
 
 <!-- TOAST -->
 <div id="toast" class="toast"></div>
 
 <script>
+// ===== IMAGE CAROUSEL =====
+const images = [
+  { src: 'photo-1.jpg', alt: 'Product 1' },
+  { src: 'photo-2.jpg', alt: 'Product 2' },
+  { src: 'photo-3.jpg', alt: 'Product 3' },
+  { src: 'photo-4.jpg', alt: 'Product 4' },
+  { src: 'photo-5.jpg', alt: 'Product 5' },
+  { src: 'photo-6.jpg', alt: 'Product 6' }
+];
+
+let currentIndex = 0;
+
+function renderGallery() {
+  const main = document.getElementById('galleryMain');
+  const thumbs = document.getElementById('galleryThumbs');
+  
+  // Clear existing content (keep buttons)
+  main.innerHTML = '';
+  thumbs.innerHTML = '';
+  
+  // Create main image
+  const img = document.createElement('img');
+  img.src = images[currentIndex].src;
+  img.alt = images[currentIndex].alt;
+  img.onerror = function() {
+    this.style.display = 'none';
+    const placeholder = document.createElement('div');
+    placeholder.className = 'placeholder';
+    placeholder.textContent = 'Product Image';
+    main.appendChild(placeholder);
+  };
+  main.appendChild(img);
+  
+  // Add carousel buttons
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'carousel-btn prev';
+  prevBtn.textContent = '‹';
+  prevBtn.onclick = (e) => { e.stopPropagation(); changeImage(-1); };
+  main.appendChild(prevBtn);
+  
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'carousel-btn next';
+  nextBtn.textContent = '›';
+  nextBtn.onclick = (e) => { e.stopPropagation(); changeImage(1); };
+  main.appendChild(nextBtn);
+  
+  // Create thumbnails
+  images.forEach((imgData, index) => {
+    const thumb = document.createElement('img');
+    thumb.src = imgData.src;
+    thumb.alt = imgData.alt;
+    thumb.className = index === currentIndex ? 'active' : '';
+    thumb.onclick = () => goToImage(index);
+    thumb.onerror = function() {
+      this.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.className = 'placeholder-thumb';
+      placeholder.textContent = '📸';
+      this.parentNode.replaceChild(placeholder, this);
+    };
+    thumbs.appendChild(thumb);
+  });
+}
+
+function changeImage(direction) {
+  currentIndex = (currentIndex + direction + images.length) % images.length;
+  renderGallery();
+}
+
+function goToImage(index) {
+  currentIndex = index;
+  renderGallery();
+}
+
 // ===== NAVIGATION =====
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -690,6 +807,7 @@ function showPage(page) {
     target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (page === 'receipt') generateReceipt();
+    if (page === 'product') renderGallery();
   }
 }
 
@@ -712,7 +830,7 @@ function addToCart() {
   let cart = getCart();
   cart.items = 1;
   setCart(cart);
-  showToast('Added to cart!');
+  showToast('Added to cart! ');
 }
 
 // ===== TOAST =====
@@ -849,6 +967,7 @@ function setDefaultDate() {
 document.addEventListener('DOMContentLoaded', () => {
   setCart(getCart());
   setDefaultDate();
+  renderGallery();
   showPage('home');
 });
 </script>
